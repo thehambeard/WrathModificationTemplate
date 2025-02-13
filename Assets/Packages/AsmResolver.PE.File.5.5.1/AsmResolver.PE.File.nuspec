@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>AsmResolver.PE.File</id>
+    <version>5.5.1</version>
+    <title>AsmResolver.PE.File</title>
+    <authors>AsmResolver.PE.File</authors>
+    <projectUrl>https://github.com/Washi1337/AsmResolver</projectUrl>
+    <description>Raw PE file models for the AsmResolver executable file inspection toolsuite.</description>
+    <copyright>Copyright © Washi 2016-2024</copyright>
+    <tags>exe pe headers sections inspection manipulation assembly disassembly</tags>
+    <repository type="git" url="https://github.com/Washi1337/AsmResolver" commit="78ce89adebcc7e5dbeb1d4a1a35afcd513fb87a1" />
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="AsmResolver" version="5.5.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net6.0">
+        <dependency id="AsmResolver" version="5.5.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0">
+        <dependency id="AsmResolver" version="5.5.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="AsmResolver" version="5.5.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.1">
+        <dependency id="AsmResolver" version="5.5.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
