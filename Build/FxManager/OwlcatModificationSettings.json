@@ -1,0 +1,40 @@
+{
+    "BundlesLayout": {
+        "m_Guids": [
+            "520b5cb7c147d4241ae76e8871b3d91a",
+            "2fc7a1b8d01e1a44483fef716a29b4d5",
+            "a671370beb5e58e49b4a3d75d3086e55",
+            "97db2e1774edf00419e81cfbb32c60fc",
+            "470adc0207eb82f409180787ae13b074",
+            "ae891d86221dbf541a88a10ce3a9d149",
+            "4a3da8d42de06884d968589367d6e534",
+            "c857a1e4d87d69e4288431cfe2077804",
+            "592be09d258b1184aae73826fd57f015",
+            "6a12b5fc4e22a314da98d5eb22f64374",
+            "e975d1f3504dd354db4013cd350bdfa1",
+            "dc1705db30169264da021b92e8546865",
+            "33663568e36e4734986b5f068bb8f085",
+            "c000ea46349d65c4cbd54d266e8df998"
+        ],
+        "m_Bundles": [
+            "FxManager_all",
+            "FxManager_all",
+            "FxManager_all",
+            "FxManager_all",
+            "FxManager_all",
+            "FxManager_all",
+            "FxManager_all",
+            "FxManager_all",
+            "FxManager_all",
+            "FxManager_all",
+            "FxManager_all",
+            "FxManager_all",
+            "FxManager_all",
+            "FxManager_all"
+        ]
+    },
+    "BundleDependencies": {
+        "m_List": []
+    },
+    "BlueprintPatches": []
+}
