@@ -48,6 +48,8 @@ Assets/FxManager.meta
 *.csproj
 *.log
 *.sln
+.vsconfig
+
 
 
 # Visual Studio 2015/2017 cache/options directory
