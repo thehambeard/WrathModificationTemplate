@@ -109,35 +109,8 @@ namespace OwlcatModification.Editor.Setup
                 }
             }
 
-            const string harmonyZip = "Assets/Editor/Setup/Harmony-1.3.1.1.zip";
-            UnzipFile(harmonyZip, targetAssembliesDirectory);
-
             if (newAssemblies > 0)
                 AssetDatabase.Refresh();
-        }
-
-        private static void UnzipFile(string zipPath, string extractPath)
-        {
-            using (FileStream fs = File.OpenRead(zipPath))
-            using (ZipInputStream zipStream = new ZipInputStream(fs))
-            {
-                ZipEntry entry;
-                while ((entry = zipStream.GetNextEntry()) != null)
-                {
-                    string entryPath = Path.Combine(extractPath, entry.Name);
-                    if (entry.IsDirectory)
-                    {
-                        Directory.CreateDirectory(entryPath);
-                        continue;
-                    }
-
-                    using (FileStream output = File.Create(entryPath))
-                    {
-                        zipStream.CopyTo(output);
-                    }
-                }
-            }
-            Debug.Log($"Extracted to: {extractPath}");
         }
     }
 }
