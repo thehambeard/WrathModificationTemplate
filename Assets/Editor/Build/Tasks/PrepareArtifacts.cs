@@ -29,11 +29,13 @@ namespace OwlcatModification.Editor.Build.Tasks
             string intermediateBundlesFolderPath = m_BuildParameters.GetOutputFilePathForIdentifier(BuilderConsts.OutputBundles);
             string intermediateBlueprintsFolderPath = m_BuildParameters.GetOutputFilePathForIdentifier(BuilderConsts.OutputBlueprints);
             string intermediateLocalizationFolderPath = m_BuildParameters.GetOutputFilePathForIdentifier(BuilderConsts.OutputLocalization);
+            string intermediateResourceFolderPath = m_BuildParameters.GetOutputFilePathForIdentifier(BuilderConsts.Resource);
 
             string targetAssembliesFolderPath = Path.Combine(targetFolderPath, BuilderConsts.OutputAssemblies);
             string targetBundlesFolderPath = Path.Combine(targetFolderPath, BuilderConsts.OutputBundles);
             string targetBlueprintsFolderPath = Path.Combine(targetFolderPath, BuilderConsts.OutputBlueprints);
             string targetLocalizationFolderPath = Path.Combine(targetFolderPath, BuilderConsts.OutputLocalization);
+            string targetResourceFolderPath = Path.Combine(targetFolderPath, BuilderConsts.Resource);
 
             BuilderUtils.CopyFilesWithFoldersStructure(
                 intermediateAssembliesFolderPath, targetAssembliesFolderPath, i => i.EndsWith(".dll") || i.EndsWith(".pdb"));
@@ -46,6 +48,9 @@ namespace OwlcatModification.Editor.Build.Tasks
 
             BuilderUtils.CopyFilesWithFoldersStructure(
                 intermediateLocalizationFolderPath, targetLocalizationFolderPath);
+            
+            BuilderUtils.CopyFilesWithFoldersStructure(
+                intermediateResourceFolderPath, targetResourceFolderPath);
 
             File.Copy(
                 Path.Combine(intermediateFolderPath, Kingmaker.Modding.OwlcatModification.ManifestFileName),

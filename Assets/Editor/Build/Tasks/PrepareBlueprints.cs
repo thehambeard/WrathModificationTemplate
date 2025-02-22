@@ -28,4 +28,28 @@ namespace OwlcatModification.Editor.Build.Tasks
             return ReturnCode.Success;
         }
     }
+
+    public class PrepareResource : IBuildTask
+    {
+#pragma warning disable 649
+        [InjectContext(ContextUsage.In)]
+        private IBuildParameters m_BuildParameters;
+
+        [InjectContext(ContextUsage.In)]
+        private IModificationParameters m_ModificationParameters;
+#pragma warning restore 649
+
+        public int Version
+            => 1;
+
+        public ReturnCode Run()
+        {
+            string originDirectory = m_ModificationParameters.ResourcePath;
+            string destinationDirectory = m_BuildParameters.GetOutputFilePathForIdentifier(BuilderConsts.OutputResource);
+            BuilderUtils.CopyFilesWithFoldersStructure(
+                originDirectory, destinationDirectory, i => !i.EndsWith("meta"));
+
+            return ReturnCode.Success;
+        }
+    }
 }

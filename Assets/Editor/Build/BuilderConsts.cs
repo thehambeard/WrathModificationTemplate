@@ -13,11 +13,13 @@ namespace OwlcatModification.Editor.Build
         public const string Content = "Content";
         public const string Blueprints = "Blueprints";
         public const string Localization = "Localization";
+        public const string Resource = "Resource";
 
         public const string OutputAssemblies = "Assemblies";
         public const string OutputBundles = "Bundles";
         public const string OutputBlueprints = "Blueprints";
         public const string OutputLocalization = "Localization";
+        public const string OutputResource = "Resource";
 
         public const string BlueprintDirectReferences = "BlueprintDirectReferences";
         public const string MaterialsInBundle = "MaterialsInBundle";

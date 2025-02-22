@@ -17,6 +17,7 @@ namespace OwlcatModification.Editor.Build.Context
         string ContentPath { get; }
         string BlueprintsPath { get; }
         string LocalizationPath { get; }
+        string ResourcePath { get; }
 
         string TargetFolderName { get; }
     }
@@ -38,6 +39,8 @@ namespace OwlcatModification.Editor.Build.Context
 
         public string LocalizationPath { get; }
 
+        public string ResourcePath { get; }
+
         public string TargetFolderName { get; }
 
         public DefaultModificationParameters(
@@ -56,6 +59,7 @@ namespace OwlcatModification.Editor.Build.Context
             ContentPath = Path.Combine(SourcePath, BuilderConsts.Content);
             BlueprintsPath = Path.Combine(SourcePath, BuilderConsts.Blueprints);
             LocalizationPath = Path.Combine(SourcePath, BuilderConsts.Localization);
+            ResourcePath = Path.Combine(SourcePath, BuilderConsts.Resource);
 
             string regexSearch = new string(Path.GetInvalidFileNameChars());
             var invalidCharsRegex = new Regex($"[{Regex.Escape(regexSearch) + "\\s"}]");

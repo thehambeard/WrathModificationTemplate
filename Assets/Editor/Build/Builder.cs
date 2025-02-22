@@ -139,10 +139,8 @@ namespace OwlcatModification.Editor.Build
                 var modPath = Path.Combine(basePath, $@"Modifications\{manifest.UniqueName}\");
                 var targetPath = Path.Combine(target, $@"{manifest.UniqueName}\");
 
-                if (Directory.Exists(modPath))
-                    Directory.Delete(modPath, true);
-
-                Directory.CreateDirectory(modPath);
+                if (!Directory.Exists(modPath))
+                    Directory.CreateDirectory(modPath);
 
                 string SwapToModPath(string path) 
                 {
@@ -239,6 +237,7 @@ namespace OwlcatModification.Editor.Build
             yield return new BuildAssemblies();
 
             yield return new PrepareBlueprints();
+            yield return new PrepareResource();
 
             yield return new ExtractBlueprintDirectReferences();
             yield return new PrepareBundles();
