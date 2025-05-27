@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using TMPro;
 using UnityEditor;
 using UnityEditor.Build.Pipeline;
 using UnityEditor.Build.Pipeline.Injector;
@@ -81,21 +82,33 @@ namespace OwlcatModification.Editor.Build.Tasks
                 }
 
                 if (!layout.TryGetValue(bundleName, out var bundle))
-                {
                     layout[bundleName] = bundle = new List<GUID>();
-                }
 
                 bundle.Add(guid);
 
-                if (assetPath.EndsWith(".mat"))
+                bool isMatFile = assetPath.EndsWith(".mat", StringComparison.OrdinalIgnoreCase);
+                bool isFontAsset = AssetDatabase.GetMainAssetTypeAtPath(assetPath) == typeof(TMP_FontAsset);
+
+                if (isMatFile || isFontAsset)
                 {
                     var container = materials.Get(bundleName);
                     if (container == null)
-                    {
                         materials[bundleName] = container = new List<string>();
-                    }
 
-                    container.Add(assetGuid);
+                    if (isMatFile)
+                        container.Add(assetGuid);
+
+                    if (isFontAsset)
+                    {
+                        var fontAsset = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(assetPath);
+                        if (fontAsset != null && fontAsset.material != null)
+                        {
+                            string materialPath = AssetDatabase.GetAssetPath(fontAsset.material);
+                            string materialGuid = AssetDatabase.AssetPathToGUID(materialPath);
+                            if (!string.IsNullOrEmpty(materialGuid))
+                                container.Add(materialGuid);
+                        }
+                    }
                 }
             }
 
